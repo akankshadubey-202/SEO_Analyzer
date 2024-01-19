@@ -13,11 +13,21 @@ url= st.text_input("ENTER URL: ") # takes input from users
 def seo_analysis(url): #Save the good and the warnings in lists from
     good=[]
     bad=[]
-    # Send a GET request to the website
+    
+    if not url:
+        st.warning("Enter The URL.")
+        return
+
+    # Check if the URL has a valid scheme (http or https)
+    if not (url.startswith('http://') or url.startswith('https://')):
+        # If no scheme is provided, default to 'https://'
+        url = 'https://' + url
+
+
     response = requests.get(url)
     #Check the response status code
     if response.status_code!=200:
-        st.error("Error: Unable to access the website.")
+        print("Error: Unable to access the website. Please Enter the URL")
         return 
     
     #Parse the HTML content
@@ -71,10 +81,10 @@ def seo_analysis(url): #Save the good and the warnings in lists from
     bi_grams_freq=freq_bigrams.most_common(10)
 
     # Grab a list of English Stopwords
-    sw=nltk.corpus.stopwords.words('english')
+    sw=nltk.corpus.stopwords.words('english)
     new_words=[]
 
-    #Put the tokens which are not stopwords and are actual words(no punctuation)
+    #Put the tokens that are not stopwords and are actual words(no punctuation)
     for i in words:
         if i not in sw and i.isalpha():
             new_words.append(i)
@@ -96,7 +106,7 @@ def seo_analysis(url): #Save the good and the warnings in lists from
             st.text(i)
     with tab3:
         for i in good:
-            st.text(i)
+            st.success(i)
     with tab4:
         for i in bad:
             st.text(i)

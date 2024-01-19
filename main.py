@@ -81,7 +81,7 @@ def seo_analysis(url): #Save the good and the warnings in lists from
     bi_grams_freq=freq_bigrams.most_common(10)
 
     # Grab a list of English Stopwords
-    sw=nltk.corpus.stopwords.words('english)
+    sw=nltk.corpus.stopwords.words('english')
     new_words=[]
 
     #Put the tokens that are not stopwords and are actual words(no punctuation)

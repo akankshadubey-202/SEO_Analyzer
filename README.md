@@ -1,4 +1,6 @@
 # SEO_Analyzer
+Developed and implemented the SEO analyzer, designed to enhance online visibility and search engine rankings.
+This tool can comprehensively analyze various SEO factors of a website such as common keywords, meta tags, and headings, and provides actionable insights to improve search engine rankings.
 
 ## To get started with this project, follow these steps:
 
